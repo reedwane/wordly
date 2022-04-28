@@ -11,6 +11,21 @@ const useFetch = () => {
   const { setLoading } = useLoadingContext();
   const { setInitialDefinition } = useDataContext();
 
+  //   const getNew = async () => {
+  //     try {
+  //       const random = await axios.get(randomUrl);
+  //       const randomWord = random.data[0].word;
+
+  //       const initial = await axios.get(`${meaningUrl}${randomWord}`);
+  //       const initialDefinition = initial.data[0];
+
+  //       return initialDefinition;
+  //       //
+  //     } catch (error) {
+  //       getNew();
+  //     }
+  //   };
+
   useEffect(() => {
     try {
       (async () => {
@@ -19,7 +34,7 @@ const useFetch = () => {
         const randomWord = random.data[0].word;
 
         const initial = await axios.get(`${meaningUrl}${randomWord}`);
-        const initialDefinition = initial.data;
+        const initialDefinition = initial.data[0];
 
         setInitialDefinition(initialDefinition);
         setLoading(false);
@@ -29,7 +44,8 @@ const useFetch = () => {
     } catch (error) {
       console.log(error);
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
 
 export default useFetch;
