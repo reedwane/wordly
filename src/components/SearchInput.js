@@ -19,7 +19,7 @@ const SearchInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchTerm);
+    setSuggestions([]);
     getNew(searchTerm);
   };
 
@@ -30,7 +30,7 @@ const SearchInput = () => {
 
   return (
     <SearchWrapper>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           value={searchTerm}

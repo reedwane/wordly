@@ -25,6 +25,11 @@ export const SearchWrapper = styled.div`
     border-radius: 10px 0 0 10px;
     width: 70%;
     text-indent: 10%;
+
+    @media screen and (min-width: 600px) {
+      text-align: center;
+      text-indent: 0;
+    }
   }
 
   button {
@@ -42,6 +47,7 @@ export const SearchWrapper = styled.div`
 
     @media screen and (min-width: 600px) {
       margin: 0.5em 0;
+      width: 70%;
     }
   }
 

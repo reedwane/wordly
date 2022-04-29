@@ -3,6 +3,7 @@ import { useLoadingContext } from "context/LoadingContext";
 import useFetch from "hooks/useFetch";
 import { DefinitionHeadingsWrapper } from "styles/styledComponents/definitionHeadings";
 import { DefinitionWrapper } from "styles/styledComponents/definitionWrapper";
+import { ErrorWrapper } from "styles/styledComponents/errorWrapper";
 import DefinitionMap from "./DefinitionMap";
 import Loading from "./Loading";
 
@@ -44,7 +45,9 @@ const Definition = () => {
         </DefinitionWrapper>
       )}
 
-      {fetchError && <p>Please refresh or search for a new word</p>}
+      {fetchError && (
+        <ErrorWrapper>Please refresh or search for a new word</ErrorWrapper>
+      )}
     </>
   );
 };
