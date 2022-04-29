@@ -6,7 +6,7 @@ import Loading from "./Loading";
 
 const Definition = () => {
   useFetch();
-  const { initialDefinition, newDefinition } = useDataContext();
+  const { initialDefinition, newDefinition, fetchError } = useDataContext();
   const { isLoading } = useLoadingContext();
 
   let definitionData;
@@ -34,6 +34,8 @@ const Definition = () => {
           <DefinitionMap initialDefinition={definitionData} />
         </>
       )}
+
+      {fetchError && <p>Please refresh or search for a new word</p>}
     </>
   );
 };

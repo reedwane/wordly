@@ -4,18 +4,31 @@ import { useLoadingContext } from "context/LoadingContext";
 
 const useFetchNew = () => {
   const { setLoading } = useLoadingContext();
-  const { setNewDefinition } = useDataContext();
+  const { setNewDefinition, setFetchError } = useDataContext();
 
   const getNew = async (searchTerm) => {
-    setLoading(true);
+    try {
+      let meaningUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`;
+      setLoading(true);
+      setFetchError(false);
 
-    let meaningUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`;
-    const fetch = await axios.get(meaningUrl);
-    const newDefinition = fetch.data[0];
-    console.log(newDefinition);
+      const fetch = await axios.get(meaningUrl);
+      if (fetch.status !== 200) {
+        const err = new Error("Word searched not available");
+        err.response = fetch.response;
+        throw err;
+      }
+      const newDefinition = fetch.data[0];
 
-    setNewDefinition(newDefinition);
-    setLoading(false);
+      setNewDefinition(newDefinition);
+      setLoading(false);
+      setFetchError(false);
+      //
+    } catch (error) {
+      setNewDefinition(null);
+      setLoading(false);
+      setFetchError(true);
+    }
   };
 
   return { getNew };
