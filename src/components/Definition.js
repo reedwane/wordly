@@ -6,27 +6,32 @@ import Loading from "./Loading";
 
 const Definition = () => {
   useFetch();
-  const { initialDefinition } = useDataContext();
+  const { initialDefinition, newDefinition } = useDataContext();
   const { isLoading } = useLoadingContext();
-  const unavailableText = "not available";
+
+  let definitionData;
+  newDefinition
+    ? (definitionData = newDefinition)
+    : (definitionData = initialDefinition);
+
   return (
     <>
       {isLoading && <Loading />}
-      {initialDefinition && (
+      {definitionData && (
         <>
-          <h3>Learn a new word from Wordly: {initialDefinition.word}</h3>
+          <h3>Learn a new word from Wordly: {definitionData.word}</h3>
           <p>
             Phonetic:{" "}
             <span>
-              {initialDefinition.phonetic
-                ? initialDefinition.phonetic
-                : unavailableText}
+              {definitionData.phonetic
+                ? definitionData.phonetic
+                : "not available"}
             </span>
           </p>
           {/* <p>Audio: </p> */}
 
-          <h4>Definitions of {initialDefinition.word}</h4>
-          <DefinitionMap initialDefinition={initialDefinition} />
+          <h4>Definitions of {definitionData.word}</h4>
+          <DefinitionMap initialDefinition={definitionData} />
         </>
       )}
     </>
