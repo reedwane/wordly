@@ -1,4 +1,5 @@
 import Definition from "components/Definition";
+import Footer from "components/Footer";
 import Header from "components/Header";
 import SearchInput from "components/SearchInput";
 import { DataProvider } from "context/DataContext";
@@ -17,6 +18,8 @@ function App() {
             <Definition />
           </DataProvider>
         </LoadingProvider>
+
+        <Footer />
       </AppWrapper>
     </div>
   );
