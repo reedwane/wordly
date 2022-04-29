@@ -25,6 +25,7 @@ const SearchInput = () => {
 
   const handleSuggestion = (word) => {
     setSearchTerm(word);
+    getNew(word);
     setSuggestions([]);
   };
 
