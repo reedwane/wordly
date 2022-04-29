@@ -6,7 +6,6 @@ import { useEffect } from "react";
 const useFetch = () => {
   let randomUrl = "https://random-words-api.vercel.app/word",
     meaningUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-  // ,autocompleteUrl = "https://api.datamuse.com/sug?s=<word>";
 
   const { setLoading } = useLoadingContext();
   const { setInitialDefinition, setFetchError } = useDataContext();

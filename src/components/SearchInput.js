@@ -1,13 +1,19 @@
+import axios from "axios";
 import useFetchNew from "hooks/useFetchNew";
 import { useState } from "react";
 
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const { getNew } = useFetchNew();
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setSearchTerm(e.target.value);
+
+    let autocompleteUrl = `https://api.datamuse.com/sug?s=${searchTerm}`;
+    const fetch = await axios.get(autocompleteUrl);
+    setSuggestions(fetch.data.slice(0, 5));
   };
 
   const handleSubmit = (e) => {
@@ -27,6 +33,15 @@ const SearchInput = () => {
         />
         <button onClick={(e) => handleSubmit(e)}>Seek!</button>
       </form>
+
+      <ul>
+        {suggestions &&
+          suggestions.map((word) => (
+            <li key={word.score} onClick={() => setSearchTerm(word.word)}>
+              {word.word}
+            </li>
+          ))}
+      </ul>
     </>
   );
 };
