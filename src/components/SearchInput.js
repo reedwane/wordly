@@ -1,6 +1,7 @@
 import axios from "axios";
 import useFetchNew from "hooks/useFetchNew";
 import { useState } from "react";
+import { SearchWrapper } from "styles/styledComponents/searchWrapper";
 
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,8 +23,13 @@ const SearchInput = () => {
     getNew(searchTerm);
   };
 
+  const handleSuggestion = (word) => {
+    setSearchTerm(word);
+    setSuggestions([]);
+  };
+
   return (
-    <>
+    <SearchWrapper>
       <form>
         <input
           type="text"
@@ -37,12 +43,12 @@ const SearchInput = () => {
       <ul>
         {suggestions &&
           suggestions.map((word) => (
-            <li key={word.score} onClick={() => setSearchTerm(word.word)}>
+            <li key={word.score} onClick={() => handleSuggestion(word.word)}>
               {word.word}
             </li>
           ))}
       </ul>
-    </>
+    </SearchWrapper>
   );
 };
 

@@ -1,6 +1,8 @@
+import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapper";
+
 const DefinitionMap = ({ initialDefinition }) => {
   return (
-    <>
+    <DefinitionMapWrapper>
       {initialDefinition.meanings.map((partOfSpeech) => (
         <div
           key={
@@ -50,7 +52,7 @@ const DefinitionMap = ({ initialDefinition }) => {
           )}
         </div>
       ))}
-    </>
+    </DefinitionMapWrapper>
   );
 };
 

@@ -1,6 +1,8 @@
 import { useDataContext } from "context/DataContext";
 import { useLoadingContext } from "context/LoadingContext";
 import useFetch from "hooks/useFetch";
+import { DefinitionHeadingsWrapper } from "styles/styledComponents/definitionHeadings";
+import { DefinitionWrapper } from "styles/styledComponents/definitionWrapper";
 import DefinitionMap from "./DefinitionMap";
 import Loading from "./Loading";
 
@@ -18,21 +20,28 @@ const Definition = () => {
     <>
       {isLoading && <Loading />}
       {definitionData && (
-        <>
-          <h3>Learn a new word from Wordly: {definitionData.word}</h3>
-          <p>
-            Phonetic:{" "}
-            <span>
-              {definitionData.phonetic
-                ? definitionData.phonetic
-                : "not available"}
-            </span>
-          </p>
-          {/* <p>Audio: </p> */}
+        <DefinitionWrapper>
+          <DefinitionHeadingsWrapper>
+            <h3>
+              {!newDefinition && "Learn a new word from Wordly! : "}
+              <span>{definitionData.word}</span>
+            </h3>
+            <p>
+              Phonetic:{" "}
+              <span>
+                {definitionData.phonetic
+                  ? definitionData.phonetic
+                  : "not available"}
+              </span>
+            </p>
+            {/* <p>Audio: </p> */}
+            <h4>
+              Definitions of <span>{definitionData.word} :</span>
+            </h4>
+          </DefinitionHeadingsWrapper>
 
-          <h4>Definitions of {definitionData.word}</h4>
           <DefinitionMap initialDefinition={definitionData} />
-        </>
+        </DefinitionWrapper>
       )}
 
       {fetchError && <p>Please refresh or search for a new word</p>}
