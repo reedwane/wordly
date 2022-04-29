@@ -4,6 +4,10 @@ import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapp
 const DefinitionMap = ({ initialDefinition }) => {
   const { getNew } = useFetchNew();
 
+  const handleNew = (word) => {
+    getNew(word);
+  };
+
   return (
     <DefinitionMapWrapper>
       {initialDefinition.meanings.map((partOfSpeech) => (
@@ -33,7 +37,7 @@ const DefinitionMap = ({ initialDefinition }) => {
                   <p>
                     <span>Synonyms:</span>{" "}
                     {definition.synonyms.map((word) => (
-                      <span className="related" onClick={() => getNew(word)}>
+                      <span className="related" onClick={() => handleNew(word)}>
                         {word}
                         {", "}
                       </span>
@@ -46,7 +50,7 @@ const DefinitionMap = ({ initialDefinition }) => {
                   <p>
                     <span>Antonyms: </span>
                     {definition.antonyms.map((word) => (
-                      <span className="related" onClick={() => getNew(word)}>
+                      <span className="related" onClick={() => handleNew(word)}>
                         {word}
                         {", "}
                       </span>

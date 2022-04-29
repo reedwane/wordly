@@ -21,6 +21,12 @@ const useFetchNew = () => {
       const newDefinition = fetch.data[0];
 
       setNewDefinition(newDefinition);
+      window.scrollTo({
+        //scroll to top
+        top: 10,
+        left: 100,
+        behavior: "smooth",
+      });
       setLoading(false);
       setFetchError(false);
       //

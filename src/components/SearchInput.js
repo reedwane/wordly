@@ -20,11 +20,12 @@ const SearchInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuggestions([]);
+    setSearchTerm("");
     getNew(searchTerm);
   };
 
   const handleSuggestion = (word) => {
-    setSearchTerm(word);
+    setSearchTerm("");
     getNew(word);
     setSuggestions([]);
   };

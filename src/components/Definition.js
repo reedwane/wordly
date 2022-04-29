@@ -6,6 +6,7 @@ import { DefinitionWrapper } from "styles/styledComponents/definitionWrapper";
 import { ErrorWrapper } from "styles/styledComponents/errorWrapper";
 import DefinitionMap from "./DefinitionMap";
 import Loading from "./Loading";
+import audio from "assets/audio.png";
 
 const Definition = () => {
   useFetch();
@@ -16,6 +17,11 @@ const Definition = () => {
   newDefinition
     ? (definitionData = newDefinition)
     : (definitionData = initialDefinition);
+
+  const play = (definitionData) => {
+    let audio = new Audio(definitionData.phonetics[0].audio);
+    audio.play();
+  };
 
   return (
     <>
@@ -34,6 +40,10 @@ const Definition = () => {
                   ? definitionData.phonetic
                   : "not available"}
               </span>
+              {definitionData.phonetics[0].audio &&
+                definitionData.phonetics[0].audio !== "" && (
+                  <img src={audio} onClick={() => play(definitionData)} />
+                )}
             </p>
             {/* <p>Audio: </p> */}
             <h4>

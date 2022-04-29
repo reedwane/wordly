@@ -24,4 +24,12 @@ export const DefinitionHeadingsWrapper = styled.div`
       text-align: center;
     }
   }
+
+  img {
+    width: 2rem;
+    display: inline-block;
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+  }
 `;

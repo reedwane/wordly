@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { primaryColor } from "styles/variables";
+import { lightPrimaryColor, primaryColor } from "styles/variables";
 
 export const DefinitionMapWrapper = styled.div`
   padding: 0 2em;
@@ -39,6 +39,7 @@ export const DefinitionMapWrapper = styled.div`
       cursor: pointer;
       font-weight: 500;
       text-decoration: underline;
+      text-decoration-color: ${lightPrimaryColor};
     }
   }
 `;
