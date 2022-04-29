@@ -1,6 +1,9 @@
+import useFetchNew from "hooks/useFetchNew";
 import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapper";
 
 const DefinitionMap = ({ initialDefinition }) => {
+  const { getNew } = useFetchNew();
+
   return (
     <DefinitionMapWrapper>
       {initialDefinition.meanings.map((partOfSpeech) => (
@@ -27,11 +30,28 @@ const DefinitionMap = ({ initialDefinition }) => {
                 <p>{definition.definition}</p>
                 {definition.example && <p>Example: {definition.example}</p>}
                 {definition.synonyms.length !== 0 && (
-                  <p>Synonyms: {definition.synonyms.join(", ")}.</p>
+                  <p>
+                    <span>Synonyms:</span>{" "}
+                    {definition.synonyms.map((word) => (
+                      <span className="related" onClick={() => getNew(word)}>
+                        {word}
+                        {", "}
+                      </span>
+                    ))}
+                    .
+                  </p>
                 )}
 
                 {definition.antonyms.length !== 0 && (
-                  <p>Antonyms: {definition.antonyms.join(", ")}.</p>
+                  <p>
+                    <span>Antonyms: </span>
+                    {definition.antonyms.map((word) => (
+                      <span className="related" onClick={() => getNew(word)}>
+                        {word}
+                        {", "}
+                      </span>
+                    ))}
+                  </p>
                 )}
               </li>
             ))}
@@ -39,15 +59,25 @@ const DefinitionMap = ({ initialDefinition }) => {
 
           {partOfSpeech.synonyms.length !== 0 && (
             <p>
-              {partOfSpeech.partOfSpeech} Synonyms:{" "}
-              {partOfSpeech.synonyms.join(", ")}
+              <span>{partOfSpeech.partOfSpeech} Synonyms: </span>
+              {partOfSpeech.synonyms.map((word) => (
+                <span className="related" onClick={() => getNew(word)}>
+                  {word}
+                  {", "}
+                </span>
+              ))}
             </p>
           )}
 
           {partOfSpeech.antonyms.length !== 0 && (
             <p>
-              {partOfSpeech.partOfSpeech} Antonyms:{" "}
-              {partOfSpeech.antonyms.join(", ")}
+              <span>{partOfSpeech.partOfSpeech} Antonyms: </span>
+              {partOfSpeech.antonyms.map((word) => (
+                <span className="related" onClick={() => getNew(word)}>
+                  {word}
+                  {", "}
+                </span>
+              ))}
             </p>
           )}
         </div>
