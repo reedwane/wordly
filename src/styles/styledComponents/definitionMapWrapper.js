@@ -5,7 +5,7 @@ export const DefinitionMapWrapper = styled.div`
   padding: 0 2em;
   text-align: justify;
   display: grid;
-  gap: 1em;
+  gap: 5%;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   max-width: 1440px;
   margin: 0 auto;
@@ -13,6 +13,11 @@ export const DefinitionMapWrapper = styled.div`
 
   ul {
     padding: 0.5em;
+    padding-left: 1em;
+
+    li {
+      margin-left: 0px;
+    }
   }
 
   h5 {
