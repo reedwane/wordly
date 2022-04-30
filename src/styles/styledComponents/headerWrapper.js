@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { headerFamily, primaryColor } from "styles/variables";
+import { headerFamily, primaryColor, white } from "styles/variables";
 
 export const HeaderWrapper = styled.header`
   border: 1px solid ${primaryColor};
@@ -9,7 +9,12 @@ export const HeaderWrapper = styled.header`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  cursor: default;
+  cursor: pointer;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  background-color: ${white};
 
   @media screen and (min-width: 600px) {
     justify-content: space-around;

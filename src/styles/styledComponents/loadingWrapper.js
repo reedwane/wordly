@@ -11,9 +11,9 @@ export const LoadingWrapper = styled.div`
     }
   }
 
-  position: absolute;
-  top: 50%;
+  position: relative;
   left: 50%;
-  min-height: 60vh;
-  transform: translate(-50%, 0);
+  padding: 50% 5%;
+  min-height: 80vh;
+  transform: translate(-50%, 0%);
 `;

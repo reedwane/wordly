@@ -4,7 +4,8 @@ import { useLoadingContext } from "context/LoadingContext";
 
 const useFetchNew = () => {
   const { setLoading } = useLoadingContext();
-  const { setNewDefinition, setFetchError } = useDataContext();
+  const { setNewDefinition, setFetchError, setInitialDefinition } =
+    useDataContext();
 
   const getNew = async (searchTerm) => {
     try {
@@ -28,10 +29,10 @@ const useFetchNew = () => {
         behavior: "smooth",
       });
       setLoading(false);
-      setFetchError(false);
       //
     } catch (error) {
       setNewDefinition(null);
+      setInitialDefinition(null);
       setLoading(false);
       setFetchError(true);
     }

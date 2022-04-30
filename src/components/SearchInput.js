@@ -19,14 +19,14 @@ const SearchInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSuggestions([]);
-    setSearchTerm("");
+    setSuggestions("");
     getNew(searchTerm);
+    setSearchTerm("");
   };
 
   const handleSuggestion = (word) => {
     setSearchTerm("");
-    setSuggestions([]);
+    setSuggestions("");
     getNew(word);
   };
 
@@ -45,7 +45,7 @@ const SearchInput = () => {
       <ul>
         {suggestions &&
           suggestions.map((word) => (
-            <li key={word.score} onClick={() => handleSuggestion(word.word)}>
+            <li key={word} onClick={() => handleSuggestion(word.word)}>
               {word.word}
             </li>
           ))}

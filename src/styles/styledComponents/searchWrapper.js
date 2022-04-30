@@ -10,7 +10,7 @@ export const SearchWrapper = styled.div`
   display: inline-block;
   width: 80%;
   max-width: 350px;
-  margin: 2em auto 0;
+  margin: 5em auto 0;
   position: relative;
 
   input,

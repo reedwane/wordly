@@ -3,15 +3,13 @@ import { lightPrimaryColor, primaryColor, white } from "styles/variables";
 
 export const FooterWrapper = styled.footer`
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   font-size: 0.8rem;
   line-height: 150%;
   font-weight: 200;
   color: ${white};
   background-color: ${lightPrimaryColor};
   border-top: 1px solid ${primaryColor};
+  position: relative;
 
   a {
     color: ${white};

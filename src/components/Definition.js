@@ -62,7 +62,10 @@ const Definition = () => {
       )}
 
       {fetchError && (
-        <ErrorWrapper>Please refresh or search for a new word</ErrorWrapper>
+        <ErrorWrapper>
+          Ooops! That word is not available for now! Do check for another VALID
+          word, or refresh the page
+        </ErrorWrapper>
       )}
     </>
   );
