@@ -1,11 +1,17 @@
 import styled from "styled-components";
-import { bodyFamily, lightPrimaryColor, primaryColor } from "styles/variables";
+import {
+  bodyFamily,
+  lightPrimaryColor,
+  primaryColor,
+  white,
+} from "styles/variables";
 
 export const SearchWrapper = styled.div`
   display: inline-block;
   width: 80%;
   max-width: 350px;
   margin: 2em auto 0;
+  position: relative;
 
   input,
   button {
@@ -40,10 +46,13 @@ export const SearchWrapper = styled.div`
 
   ul {
     border: 1px solid ${primaryColor};
+    background-color: ${white};
     width: 50%;
     padding: 0em 1em 0em;
     margin: 1em auto;
     border-radius: 10px;
+    position: absolute;
+    z-index: 2;
 
     @media screen and (min-width: 600px) {
       margin: 0.5em 0;
