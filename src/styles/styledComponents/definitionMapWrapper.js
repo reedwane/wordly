@@ -5,15 +5,14 @@ export const DefinitionMapWrapper = styled.div`
   padding: 0 2em;
   text-align: justify;
   display: grid;
-  gap: 5%;
-
-  @media screen and (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  }
 
   max-width: 1440px;
   margin: 0 auto;
-  position: relative;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5%;
+  }
 
   ul {
     padding: 0.5em;

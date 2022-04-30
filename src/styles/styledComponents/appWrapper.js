@@ -3,7 +3,8 @@ import { headerFamily } from "styles/variables";
 
 export const AppWrapper = styled.div`
   text-align: center;
-  min-height: 100%;
+  height: 100%;
+  min-height: 100vh;
 
   h1,
   h2,
