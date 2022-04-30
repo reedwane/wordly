@@ -5,13 +5,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  height: 100%;
+}
 body {
   font-family: "Arima Madurai", cursive;
+  height: 100%;
 }
 
 .root,
 .app {
-  height: 100%;
+  position: absolute;
+  height: fit-content;
 }
 
 /* width */

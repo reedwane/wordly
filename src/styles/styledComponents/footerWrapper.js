@@ -9,9 +9,8 @@ export const FooterWrapper = styled.footer`
   color: ${white};
   background-color: ${lightPrimaryColor};
   border-top: 1px solid ${primaryColor};
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  transform: translate(0, 100%);
 
   a {
     color: ${white};

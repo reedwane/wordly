@@ -13,6 +13,7 @@ export const LoadingWrapper = styled.div`
 
   position: relative;
   left: 50%;
-  padding: 30% 5% 0;
+  padding: 50% 5%;
+  min-height: 80vh;
   transform: translate(-50%, 0%);
 `;
