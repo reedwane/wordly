@@ -5,8 +5,7 @@ export const ErrorWrapper = styled.div`
   position: relative;
   color: ${primaryColor};
   display: block;
-  padding: 50% 5%;
-  min-height: 80vh;
+  padding: 50% 5% 0;
   left: 50%;
   transform: translate(-50%, 0%);
 `;
