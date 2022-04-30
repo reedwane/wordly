@@ -19,9 +19,11 @@ const SearchInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSuggestions("");
-    getNew(searchTerm);
-    setSearchTerm("");
+    if (searchTerm !== "") {
+      setSuggestions("");
+      getNew(searchTerm);
+      setSearchTerm("");
+    }
   };
 
   const handleSuggestion = (word) => {
