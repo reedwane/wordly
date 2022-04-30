@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <HeaderWrapper onClick={() => toTop()}>
       <img src={logo} alt="logo" />
-      <p>Hello Wordly Seeker</p>
+      <p>Hello Wordly Seeker &#128526;</p>
     </HeaderWrapper>
   );
 };

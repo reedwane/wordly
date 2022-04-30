@@ -30,7 +30,11 @@ const Definition = () => {
         <DefinitionWrapper>
           <DefinitionHeadingsWrapper>
             <h3>
-              {!newDefinition && "Learn a new word from Wordly! : "}
+              {!newDefinition && (
+                <span>
+                  "Learn a new word from Wordly &#128104;&#8205;&#127979; :{" "}
+                </span>
+              )}
               <span>{definitionData.word}</span>
             </h3>
             <p>
@@ -63,8 +67,8 @@ const Definition = () => {
 
       {fetchError && (
         <ErrorWrapper>
-          Ooops! That word is not available for now! Do check for another VALID
-          word, or refresh the page
+          Ooops! That word is not available for now &#128532; <br /> Do check
+          for another VALID word, or refresh the page
         </ErrorWrapper>
       )}
     </>
