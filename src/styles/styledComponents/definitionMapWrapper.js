@@ -6,7 +6,7 @@ export const DefinitionMapWrapper = styled.div`
   text-align: justify;
   display: grid;
   gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
