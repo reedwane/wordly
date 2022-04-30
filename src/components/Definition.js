@@ -41,7 +41,8 @@ const Definition = () => {
                   : "not available"}
               </span>
               {/* // */}
-              {definitionData.phonetics[0].audio &&
+              {definitionData.phonetics.length !== 0 &&
+                definitionData.phonetics[0].audio &&
                 definitionData.phonetics[0].audio !== "" && (
                   <img
                     src={audio}
