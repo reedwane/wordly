@@ -14,5 +14,6 @@ export const LoadingWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  min-height: 60vh;
   transform: translate(-50%, 0);
 `;

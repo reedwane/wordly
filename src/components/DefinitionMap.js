@@ -37,7 +37,11 @@ const DefinitionMap = ({ initialDefinition }) => {
                   <p>
                     <span>Synonyms:</span>{" "}
                     {definition.synonyms.map((word) => (
-                      <span className="related" onClick={() => handleNew(word)}>
+                      <span
+                        key={word}
+                        className="related"
+                        onClick={() => handleNew(word)}
+                      >
                         {word}
                         {", "}
                       </span>
@@ -50,7 +54,11 @@ const DefinitionMap = ({ initialDefinition }) => {
                   <p>
                     <span>Antonyms: </span>
                     {definition.antonyms.map((word) => (
-                      <span className="related" onClick={() => handleNew(word)}>
+                      <span
+                        className="related"
+                        key={word}
+                        onClick={() => handleNew(word)}
+                      >
                         {word}
                         {", "}
                       </span>
@@ -65,7 +73,11 @@ const DefinitionMap = ({ initialDefinition }) => {
             <p>
               <span>{partOfSpeech.partOfSpeech} Synonyms: </span>
               {partOfSpeech.synonyms.map((word) => (
-                <span className="related" onClick={() => getNew(word)}>
+                <span
+                  className="related"
+                  key={word}
+                  onClick={() => getNew(word)}
+                >
                   {word}
                   {", "}
                 </span>
@@ -77,7 +89,11 @@ const DefinitionMap = ({ initialDefinition }) => {
             <p>
               <span>{partOfSpeech.partOfSpeech} Antonyms: </span>
               {partOfSpeech.antonyms.map((word) => (
-                <span className="related" onClick={() => getNew(word)}>
+                <span
+                  className="related"
+                  key={word}
+                  onClick={() => getNew(word)}
+                >
                   {word}
                   {", "}
                 </span>

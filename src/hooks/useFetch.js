@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useDataContext } from "context/DataContext";
 import { useLoadingContext } from "context/LoadingContext";
-import { useEffect } from "react";
+import { useEffectOnce } from "./useEffectOnce";
 
 const useFetch = () => {
   let randomUrl = "https://random-words-api.vercel.app/word",
@@ -25,33 +25,31 @@ const useFetch = () => {
   //     }
   //   };
 
-  useEffect(() => {
+  useEffectOnce(() => {
     (async () => {
-      try {
-        setLoading(true);
-        setFetchError(false);
+      setLoading(true);
+      setFetchError(false);
 
-        const random = await axios.get(randomUrl);
-        const randomWord = random.data[0].word;
+      let initial, initialDefinition;
 
-        const initial = await axios.get(`${meaningUrl}${randomWord}`);
-        if (initial.status !== 200) {
-          const err = new Error("Word searched not available");
-          err.response = initial.response;
-          throw err;
+      do {
+        let random = await axios.get(randomUrl);
+        let randomWord = random.data[0].word;
+
+        try {
+          initial = await axios.get(`${meaningUrl}${randomWord}`);
+        } catch (error) {
+          continue;
         }
-        const initialDefinition = initial.data[0];
+      } while (!initial); //loop till you get a random word that is available
 
-        setInitialDefinition(initialDefinition);
-        setLoading(false);
-        setFetchError(false);
+      initialDefinition = initial.data[0];
 
-        //
-      } catch (error) {
-        setLoading(false);
-        setInitialDefinition(false);
-        setFetchError(true);
-      }
+      setInitialDefinition(initialDefinition);
+      setLoading(false);
+      setFetchError(false);
+
+      //
     })();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

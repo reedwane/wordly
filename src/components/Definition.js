@@ -40,12 +40,17 @@ const Definition = () => {
                   ? definitionData.phonetic
                   : "not available"}
               </span>
+              {/* // */}
               {definitionData.phonetics[0].audio &&
                 definitionData.phonetics[0].audio !== "" && (
-                  <img src={audio} onClick={() => play(definitionData)} />
+                  <img
+                    src={audio}
+                    alt="audio"
+                    onClick={() => play(definitionData)}
+                  />
                 )}
             </p>
-            {/* <p>Audio: </p> */}
+
             <h4>
               Definitions of <span>{definitionData.word} :</span>
             </h4>

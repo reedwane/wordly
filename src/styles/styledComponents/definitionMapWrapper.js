@@ -9,6 +9,7 @@ export const DefinitionMapWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
 
   ul {
     padding: 0.5em;
@@ -31,6 +32,7 @@ export const DefinitionMapWrapper = styled.div`
     span {
       text-transform: capitalize;
       font-weight: bold;
+      font-size: 1rem;
     }
 
     .related {
