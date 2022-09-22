@@ -3,7 +3,6 @@ import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapp
 import ActiveTab from "./ActiveTab";
 
 const DefinitionMap = ({ initialDefinition }) => {
-  console.log(initialDefinition);
   const [activeTab, setActiveTab] = useState(initialDefinition[0]);
   const [tab, setTab] = useState(0);
 
