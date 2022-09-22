@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { headerFamily } from "styles/variables";
+import { headerFamily } from "../variables";
 
 export const AppWrapper = styled.div`
   text-align: center;

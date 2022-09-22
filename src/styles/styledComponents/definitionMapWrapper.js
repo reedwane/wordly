@@ -1,21 +1,31 @@
 import styled from "styled-components";
-import { lightPrimaryColor, primaryColor } from "styles/variables";
+import { lightPrimaryColor, primaryColor, white } from "styles/variables";
 
 export const DefinitionMapWrapper = styled.div`
-  padding: 0 2em;
+  padding: 0 2em 5em;
   text-align: justify;
 
   max-width: 1440px;
   margin: 0 auto;
 
   .tabs {
-    display: flex;
+    display: inline-flex;
+    min-width: 50%;
     align-items: center;
-    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: auto;
     gap: 1rem;
     margin: 1rem 0 1rem;
-    padding-bottom: 0.5rem;
     border-bottom: 1px solid ${primaryColor};
+
+    ::-webkit-scrollbar {
+      height: 1px;
+    }
+
+    .active {
+      background-color: ${primaryColor};
+      color: ${white};
+    }
   }
 
   ul {
@@ -32,6 +42,8 @@ export const DefinitionMapWrapper = styled.div`
     font-size: 1rem;
     text-align: center;
     color: ${primaryColor};
+    padding: 0.5rem;
+    cursor: pointer;
 
     @media screen and (min-width: 600px) {
       text-align: left;

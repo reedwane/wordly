@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapper";
 import ActiveTab from "./ActiveTab";
 
 const DefinitionMap = ({ initialDefinition }) => {
+  console.log(initialDefinition);
   const [activeTab, setActiveTab] = useState(initialDefinition[0]);
+  const [tab, setTab] = useState(0);
 
-  const handleSetTab = (data) => {
+  useEffect(() => {
+    setActiveTab(initialDefinition[0]);
+    setTab(0);
+  }, [initialDefinition]);
+
+  const handleSetTab = (data, number) => {
     setActiveTab(data);
+    setTab(number);
   };
 
   return (
@@ -15,8 +23,8 @@ const DefinitionMap = ({ initialDefinition }) => {
         {initialDefinition.map((partOfSpeech, i) => (
           <h5
             key={i}
-            onClick={() => handleSetTab(partOfSpeech)}
-            className={true ? "active" : ""}
+            onClick={() => handleSetTab(partOfSpeech, i)}
+            className={tab === i ? "active" : ""}
           >
             {partOfSpeech.partOfSpeech}
           </h5>

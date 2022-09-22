@@ -5,4 +5,8 @@ export const DefinitionWrapper = styled.div`
   max-width: 1440px;
   position: relative;
   min-height: 95vh;
+
+  @media screen and (min-width: 1024px) {
+    min-height: 75vh;
+  }
 `;

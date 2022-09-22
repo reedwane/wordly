@@ -19,9 +19,9 @@ const useFetchNew = () => {
         err.response = fetch.response;
         throw err;
       }
-      const newDefinition = fetch.data[0];
 
-      setNewDefinition(newDefinition);
+      setInitialDefinition(null);
+      setNewDefinition(fetch.data[0]);
       window.scrollTo({
         //scroll to top
         top: 10,
