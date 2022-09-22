@@ -61,7 +61,7 @@ const Definition = () => {
             </h4>
           </DefinitionHeadingsWrapper>
 
-          <DefinitionMap initialDefinition={definitionData} />
+          <DefinitionMap initialDefinition={definitionData.meanings} />
         </DefinitionWrapper>
       )}
 

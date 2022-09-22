@@ -35,7 +35,6 @@ const useFetch = () => {
       do {
         let random = await axios.get(randomUrl);
         let randomWord = random.data[0].word;
-        console.log(randomWord);
 
         try {
           initial = await axios.get(`${meaningUrl}${randomWord}`);

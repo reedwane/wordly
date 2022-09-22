@@ -1,107 +1,29 @@
-import useFetchNew from "hooks/useFetchNew";
+import { useState } from "react";
 import { DefinitionMapWrapper } from "styles/styledComponents/definitionMapWrapper";
+import ActiveTab from "./ActiveTab";
 
 const DefinitionMap = ({ initialDefinition }) => {
-  const { getNew } = useFetchNew();
+  const [activeTab, setActiveTab] = useState(initialDefinition[0]);
 
-  const handleNew = (word) => {
-    getNew(word);
+  const handleSetTab = (data) => {
+    setActiveTab(data);
   };
 
   return (
     <DefinitionMapWrapper>
-      {initialDefinition.meanings.map((partOfSpeech) => (
-        <div
-          key={
-            Array.prototype.indexOf.call(
-              initialDefinition.meanings,
-              partOfSpeech
-            ) + "id"
-          }
-        >
-          <h5>{partOfSpeech.partOfSpeech} </h5>
+      <div className="tabs">
+        {initialDefinition.map((partOfSpeech, i) => (
+          <h5
+            key={i}
+            onClick={() => handleSetTab(partOfSpeech)}
+            className={true ? "active" : ""}
+          >
+            {partOfSpeech.partOfSpeech}
+          </h5>
+        ))}
+      </div>
 
-          <ul>
-            {partOfSpeech.definitions.map((definition) => (
-              <li
-                key={
-                  Array.prototype.indexOf.call(
-                    partOfSpeech.definitions,
-                    definition
-                  ) + "id"
-                }
-              >
-                <p>{definition.definition}</p>
-                {definition.example && <p>Example: {definition.example}</p>}
-                {definition.synonyms.length !== 0 && (
-                  <p>
-                    <span>Synonyms:</span>{" "}
-                    {definition.synonyms.map((word) => (
-                      <span
-                        key={word}
-                        className="related"
-                        onClick={() => handleNew(word)}
-                      >
-                        {word}
-                        {", "}
-                      </span>
-                    ))}
-                    .
-                  </p>
-                )}
-
-                {definition.antonyms.length !== 0 && (
-                  <p>
-                    <span>Antonyms: </span>
-                    {definition.antonyms.map((word) => (
-                      <span
-                        className="related"
-                        key={word}
-                        onClick={() => handleNew(word)}
-                      >
-                        {word}
-                        {", "}
-                      </span>
-                    ))}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          {partOfSpeech.synonyms.length !== 0 && (
-            <p>
-              <span>{partOfSpeech.partOfSpeech} Synonyms: </span>
-              {partOfSpeech.synonyms.map((word) => (
-                <span
-                  className="related"
-                  key={word}
-                  onClick={() => getNew(word)}
-                >
-                  {word}
-                  {", "}
-                </span>
-              ))}
-            </p>
-          )}
-
-          {partOfSpeech.antonyms.length !== 0 && (
-            <p>
-              <span>{partOfSpeech.partOfSpeech} Antonyms: </span>
-              {partOfSpeech.antonyms.map((word) => (
-                <span
-                  className="related"
-                  key={word}
-                  onClick={() => getNew(word)}
-                >
-                  {word}
-                  {", "}
-                </span>
-              ))}
-            </p>
-          )}
-        </div>
-      ))}
+      <ActiveTab partOfSpeech={activeTab} />
     </DefinitionMapWrapper>
   );
 };

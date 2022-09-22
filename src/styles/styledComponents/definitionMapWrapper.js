@@ -4,14 +4,18 @@ import { lightPrimaryColor, primaryColor } from "styles/variables";
 export const DefinitionMapWrapper = styled.div`
   padding: 0 2em;
   text-align: justify;
-  display: grid;
 
   max-width: 1440px;
   margin: 0 auto;
 
-  @media screen and (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 5%;
+  .tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid ${primaryColor};
   }
 
   ul {
@@ -27,9 +31,7 @@ export const DefinitionMapWrapper = styled.div`
     text-transform: capitalize;
     font-size: 1rem;
     text-align: center;
-    margin: 1em;
     color: ${primaryColor};
-    text-decoration: underline;
 
     @media screen and (min-width: 600px) {
       text-align: left;
