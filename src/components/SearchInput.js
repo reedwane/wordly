@@ -12,6 +12,8 @@ const SearchInput = () => {
   const debouncedValue = useDebounce(searchTerm, 500);
 
   useEffect(() => {
+    const controller = new AbortController();
+    setSuggestions();
     if (searchTerm !== "") {
       (async () => {
         let autocompleteUrl = `https://api.datamuse.com/sug?s=${debouncedValue}`;
@@ -19,6 +21,7 @@ const SearchInput = () => {
         setSuggestions(fetch.data.slice(0, 5));
       })();
     }
+    return () => controller.abort();
     // eslint-disable-next-line
   }, [debouncedValue]);
 
@@ -36,11 +39,11 @@ const SearchInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    closeSuggestions();
 
     if (searchTerm !== "") {
       getNew(searchTerm);
       setSearchTerm("");
-      closeSuggestions();
     }
   };
 

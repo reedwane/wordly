@@ -18,7 +18,7 @@ export const FooterWrapper = styled.footer`
     text-decoration-color: ${primaryColor};
   }
 
-  @media screen and (min-width: 1024px) {
+  /* @media screen and (min-width: 1024px) {
     position: relative;
-  }
+  } */
 `;

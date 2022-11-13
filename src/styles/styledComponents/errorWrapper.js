@@ -4,8 +4,8 @@ import { primaryColor } from "styles/variables";
 export const ErrorWrapper = styled.div`
   position: relative;
   color: ${primaryColor};
-  display: block;
-  padding: 50% 5%;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  display: flex;
+  justify-content: center;
+  inset: 20% 0;
+  margin: auto;
 `;
